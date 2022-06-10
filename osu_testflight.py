@@ -1,11 +1,11 @@
-from datetime import datetime
 import os
 import re
 import smtplib
 from email.mime.text import MIMEText
 import sys
-from time import sleep
 import requests
+from alive_progress import alive_bar
+import time
 
 regex = re.compile(r'>https://testflight.apple.com/join/(.*)</a>')
 PATH = os.path.dirname(sys.argv[0])+'\osu_testflight.txt'
@@ -58,17 +58,24 @@ def sent_email(info):
         print('error', e)  # 打印错误
 
 
+def wait():
+    with alive_bar(548, title='延时60s') as bar:
+        for item in range(548):
+            time.sleep(0.1)
+            bar()
+
+
 def diff():
     res = requests.get('https://osu.ppy.sh/home/testflight')
     new = regex.findall(res.text)[0]
     last = get_last()
     if last != new:
-        print(f'{last} changed to {new} at {datetime.now()}!')
+        print('检测到链接改变，正在发送邮件')
         sent_email(
             f'Osu 测试通道已更新为 https://testflight.apple.com/join/{new} ！\n' + '详见 https://osu.ppy.sh/home/testflight')
         save_token(new)
     else:
-        print(f'{get_last()} hasn\'t changed!')
+        print('链接未改变')
 
 
 if __name__ == '__main__':
@@ -77,6 +84,4 @@ if __name__ == '__main__':
             diff()
         except Exception as e:
             print(e)
-        for i in range(0, 600):
-            print(i/10)
-            sleep(0.1)
+        wait()
