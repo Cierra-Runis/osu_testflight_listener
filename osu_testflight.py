@@ -8,7 +8,7 @@ from alive_progress import alive_bar
 import time
 
 regex = re.compile(r'>https://testflight.apple.com/join/(.*)</a>')
-PATH = os.path.dirname(sys.argv[0])+'\osu_testflight.txt'
+PATH = os.path.dirname(sys.argv[0]) + '\osu_testflight.txt'
 
 
 def get_last() -> str:
@@ -63,6 +63,7 @@ def wait():
         for item in range(548):
             time.sleep(0.1)
             bar()
+    print()
 
 
 def diff():
