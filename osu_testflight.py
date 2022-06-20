@@ -22,18 +22,18 @@ def save_token(s: str):
 
 
 def sent_email(info):
-    # 邮箱服务器地址
+    # 服务器地址
     mail_host = 'smtp.qq.com'
     # 用户名
     mail_user = '2864283875'
-    # 密码(部分邮箱为授权码)
+    # 密码或授权码
     mail_pass = 'urqcczoemnhrdhdi'
-    # 邮件发送方邮箱地址
+    # 邮件发送方地址
     sender = '2864283875@qq.com'
-    # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
+    # 邮件接受方地址，注意需 [] 包裹，这意味着可以群发
     receivers = ['a2864283875@foxmail.com']
 
-    # 设置email信息
+    # 设置 email 信息
     # 邮件内容设置
     message = MIMEText(info, 'plain', 'utf-8')
     # 邮件主题
@@ -55,12 +55,13 @@ def sent_email(info):
         smtpObj.quit()
         print('success')
     except smtplib.SMTPException as e:
-        print('error', e)  # 打印错误
+        # 打印错误
+        print('error', e)
 
 
 def wait():
-    with alive_bar(548, title='延时60s') as bar:
-        for item in range(548):
+    with alive_bar(5000, title='等待下次检查') as bar:
+        for item in range(5000):
             time.sleep(0.1)
             bar()
     print()
