@@ -1,6 +1,8 @@
 '''
 一个为及时获取 osu 的 testflight 资格所写的小型监听器
+osu_testflight_listener.py
 '''
+
 import os
 import re
 import smtplib
@@ -11,14 +13,14 @@ import requests
 from alive_progress import alive_bar
 
 regex = re.compile(r'>https://testflight.apple.com/join/(.*)</a>')
-PATH = os.path.dirname(sys.argv[0]) + r'\osu_testflight.txt'
+PATH = os.path.dirname(sys.argv[0]) + r'\osu_testflight_listener.txt'
 MIN = 60  # 分钟数
 TICK = int(MIN * 6000 / 11)  # 所需 tick 数（不严谨计算）
 
 
 def get_last() -> str:
     '''
-    获取上次记录的 token
+    获取上次记录的 `token`
     '''
     with open(PATH, 'r', encoding='utf-8') as file:
         return file.read().strip()
@@ -26,7 +28,7 @@ def get_last() -> str:
 
 def save_token(new_token: str):
     '''
-    保存本次获取的 token
+    保存本次获取的 `token`
     '''
     with open(PATH, 'w', encoding='utf-8') as file:
         file.write(new_token)
@@ -85,7 +87,7 @@ def wait():
 
 def diff():
     '''
-    获取并比较俩次 token
+    获取并比较俩次 `token`
     '''
     res = requests.get(
         'https://osu.ppy.sh/home/testflight',
