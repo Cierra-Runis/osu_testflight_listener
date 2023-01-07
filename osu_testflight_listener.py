@@ -72,7 +72,7 @@ def sent_email(**kwargs):
         # 设置 email 信息
         # 邮件内容设置
 
-        raw_html = open('email.html', 'r', encoding='utf-8').read()
+        raw_html = open(f'{DIR}/email.html', 'r', encoding='utf-8').read()
 
         custom_html = f'''
             <p>你好 {receiver} ！</p>
