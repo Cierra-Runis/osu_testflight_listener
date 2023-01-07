@@ -17,7 +17,8 @@ regex = re.compile(r'>https://testflight.apple.com/join/(.*)</a>')
 regex_html = re.compile(
     r"<td id=\"content-cell\" align=\"left\">\n([\s\S]*?)\n                </td>"
 )
-PATH = os.path.dirname(sys.argv[0]) + r'\osu_testflight_listener.txt'
+DIR = os.path.dirname(__file__)
+PATH = DIR + r'\osu_testflight_listener.txt'
 MIN = 60  # 分钟数
 TICK = int(MIN * 6000 / 11)  # 所需 tick 数（不严谨计算）
 
@@ -144,7 +145,7 @@ def diff():
     )
     new = regex.findall(res.text)[0]
     last = get_last()
-    if True:
+    if new != last:
         print('检测到链接改变，正在发送邮件')
         sent_email(info=new)
         save_token(new)
@@ -162,7 +163,12 @@ def insert_after(element, new_element):
 
 if __name__ == '__main__':
     os.system('cls')
-    EMAIL = Email(json.loads(open('email.json', 'r', encoding='utf-8').read()))
+    EMAIL = Email(
+        json.loads(open(
+            f'{DIR}/email.json',
+            'r',
+            encoding='utf-8',
+        ).read()))
 
     while True:
         try:
