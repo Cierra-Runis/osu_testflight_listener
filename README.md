@@ -19,7 +19,7 @@
 
 # 📚 简介
 
-一个为及时获取 osu 的 testflight 资格所写的小型监听器
+一个为及时获取 osu 的 testflight 资格所写的小型监听器，使用 [listener_email](https://github.com/Cierra-Runis/listener_email) 发送邮件
 
 # 📦 使用方式
 
@@ -31,20 +31,7 @@
 
 # 📌 注意事项
 
-- 需添加 `email.json` 文件至根目录，内容示例如下
-
-```json
-{
-    "mail_host": "smtp.qq.com",
-    "mail_user": "********",
-    "mail_pass": "********",
-    "sender": "********@qq.com",
-    "receivers": [
-        "********@gmail.com",
-        "********@foxmail.com"
-    ]
-}
-```
+- 需添加 `email.json` 文件至根目录，内容如 [listener_email](https://github.com/Cierra-Runis/listener_email) 示例
 
 # 🧑‍💻 贡献者
 
