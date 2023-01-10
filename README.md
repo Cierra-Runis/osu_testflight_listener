@@ -1,9 +1,13 @@
 <div align="center">
-  <img id="osu_testflight_listener" width="96" alt="osu_testflight_listener" src="repository_icon/icon.svg">
+  <img width="96" alt="osu_testflight_listener" src="https://raw.githubusercontent.com/Cierra-Runis/osu_testflight_listener/master/repository_icon/icon.svg">
   <p>『 osu_testflight_listener - 内测资格！』</p>
 </div>
 
+`本 README 文件最后更新于：2023-01-10 22:31:47`
+
 [📚 简介](#-简介)
+
+[📸 示例](#-示例)
 
 [📦 使用方式](#-使用方式)
 
@@ -20,6 +24,10 @@
 # 📚 简介
 
 一个为及时获取 osu 的 testflight 资格所写的小型监听器，使用 [listener_email](https://github.com/Cierra-Runis/listener_email) 发送邮件
+
+# 📸 示例
+
+![screenshots_1](https://raw.githubusercontent.com/Cierra-Runis/osu_testflight_listener/master/img/screenshots_1.png)
 
 # 📦 使用方式
 
@@ -41,4 +49,6 @@
 
 # 🔦 声明
 
-无
+[![License](https://img.shields.io/github/license/Cierra-Runis/repository_template)](https://github.com/Cierra-Runis/osu_testflight_listener/blob/master/LICENSE)
+
+该项目采用 `MIT` 许可协议，查看 [LICENSE](https://github.com/Cierra-Runis/osu_testflight_listener/blob/master/LICENSE) 以获得更多信息
